@@ -19,7 +19,7 @@ pipeline {
 
         stage('Desplegar Aplicación') {
             steps {
-                sh 'cd docker && docker-compose up --build'
+                sh 'cd docker && docker-compose --build'
             }
         }
     }
