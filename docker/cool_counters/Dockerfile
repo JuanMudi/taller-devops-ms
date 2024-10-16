@@ -10,5 +10,5 @@ COPY . .
 EXPOSE 8000
 
 RUN pylint manage.py --errors-only
-RUN python manage.py migrate
+RUN python manage.py migrate --run-syncdb 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
