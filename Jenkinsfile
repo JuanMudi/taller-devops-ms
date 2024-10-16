@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clonar Repositorio') {
             steps {
-                git 'https://github.com/deparkes/simple-django-app.git'
+                git 'https://github.com/JuanMudi/taller-devops-ms'
             }
         }
 
