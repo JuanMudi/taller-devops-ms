@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ../cool_counters
+      dockerfile: ../docker/cool_counters/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../cool_counters:/app
+    environment:
+      - DEBUG=1
+      - DJANGO_SETTINGS_MODULE=cool_counters.settings
+    command: python manage.py runserver 0.0.0.0:8000
+
