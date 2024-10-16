@@ -13,7 +13,7 @@ pipeline {
 
         stage('Instalar Dependencias') {
             steps {
-                sh 'pip install pylint --break-system-packages'
+                sh 'pip install pylint django --break-system-packages'
             }
         }
 
