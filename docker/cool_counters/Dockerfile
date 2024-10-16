@@ -9,4 +9,6 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["pylint", "manage.py", "--errors-only", "&&", "python", "manage.py", "migrate", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+RUN pylint manage.py --errors-only
+RUN python manage.py migrate
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
