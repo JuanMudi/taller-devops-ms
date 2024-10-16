@@ -13,7 +13,7 @@ pipeline {
 
         stage('Instalar Dependencias') {
             steps {
-                sh 'pip install pylint --break-system-packages'
+                sh 'apt install pylint'
             }
         }
 
