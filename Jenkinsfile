@@ -8,13 +8,12 @@ pipeline {
     stages {
         stage('Clonar Repositorio') {
             steps {
-                git 'https://github.com/JuanMudi/taller-devops-ms'
-            }
+                git branch: 'main', url: 'https://github.com/JuanMudi/taller-devops-ms.git'            }
         }
 
         stage('Instalar Dependencias') {
             steps {
-                sh 'pip install pylint'
+                sh 'pip install pylint --break-system-packages'
             }
         }
 
