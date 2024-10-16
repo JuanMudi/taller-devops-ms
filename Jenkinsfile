@@ -20,7 +20,7 @@ pipeline {
         stage('Ejecutar Pylint') {
             steps {
                 sh '''
-                    FILES=$(find . -name "*.py")
+                    FILES=$(find . -name "*.py" -not -name "__init__.py")
                     if [ -z "$FILES" ]; then
                         echo "No se encontraron archivos Python para analizar."
                         exit 1
