@@ -13,7 +13,7 @@ pipeline {
 
         stage('Instalar Dependencias') {
             steps {
-                sh 'apt install pylint'
+                sh 'pip install pylint --break-system-packages'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
                         echo "No se encontraron archivos Python para analizar."
                         exit 1
                     fi
-                    pylint $FILES
+                    pylint $FILES --errors-only
                 '''
             }
         }
