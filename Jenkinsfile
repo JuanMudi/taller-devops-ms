@@ -17,18 +17,18 @@ pipeline {
             }
         }
 
-        // stage('Ejecutar Pylint') {
-        //     // steps {
-        //     //     sh '''
-        //     //         FILES=$(find . -name "*.py")
-        //     //         if [ -z "$FILES" ]; then
-        //     //             echo "No se encontraron archivos Python para analizar."
-        //     //             exit 1
-        //     //         fi
-        //     //         pylint $FILES --errors-only
-        //     //     '''
-        //     // }
-        // }
+        stage('Ejecutar Pylint') {
+            steps {
+                sh '''
+                    FILES=$(find . -name "*.py")
+                    if [ -z "$FILES" ]; then
+                        echo "No se encontraron archivos Python para analizar."
+                        exit 1
+                    fi
+                    pylint $FILES --errors-only
+                '''
+            }
+        }
 
         stage('Desplegar Aplicación') {
             steps {
