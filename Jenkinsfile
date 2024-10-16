@@ -14,7 +14,6 @@ pipeline {
 
         stage('Instalar Dependencias') {
             steps {
-                sh 'pip install -r requirements.txt'
                 sh 'pip install pylint'
             }
         }
@@ -32,15 +31,9 @@ pipeline {
             }
         }
 
-        stage('Construir Imagen Docker') {
-            steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
-            }
-        }
-
         stage('Desplegar Aplicación') {
             steps {
-                sh 'docker-compose up -d'
+                sh 'cd docker && docker-compose up -d'
             }
         }
     }
